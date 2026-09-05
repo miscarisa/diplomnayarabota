@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow,noarchive" />
+  <meta name="referrer" content="no-referrer" />
+  <title>Учебный макет — ECert.Питомцы</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="study-banner" role="note">
+    <strong>УЧЕБНЫЙ МАКЕТ</strong>
+    <span>Дипломная работа. Не является официальным сервисом Россельхознадзора и не подтверждает подлинность документов.</span>
+    <nav class="demo-switch" aria-label="Демонстрационные страницы">
+      <a href="/pets/protocol/67c87a58-1c7c-47fc-aa88-5a27c69e4dba" data-pet-link="radja">Radja</a>
+      <a href="/pets/protocol/demo-salem" data-pet-link="salem">Salem</a>
+    </nav>
+  </div>
+
+  <header class="site-header">
+    <div class="topline">
+      <div class="shell topbar-inner">
+        <a class="brand" href="/" aria-label="Учебный макет ECert.Питомцы">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 40 40" role="img"><path d="M20 3 34 10v11c0 8.4-5.5 13.6-14 16C11.5 34.6 6 29.4 6 21V10L20 3Z" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M13 20h14M20 13v14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+          </span>
+          <span class="brand-copy"><b>ВЕТИС.ECERT</b><small>Питомцы</small></span>
+        </a>
+        <div class="top-actions">
+          <span class="lang">RU</span>
+          <span class="separator"></span>
+          <a href="#support">Техническая поддержка</a>
+        </div>
+      </div>
+    </div>
+    <div class="navline">
+      <div class="shell nav-inner">
+        <a href="#">Главная</a>
+        <a href="#">Получить инструкции</a>
+        <a href="#">Подать заявку</a>
+        <a class="active" href="#protocol">Протоколы исследований</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="protocol" class="shell page">
+    <div class="breadcrumbs" aria-label="Хлебные крошки">
+      <a href="#">Главная</a><span>›</span><a href="#">Протоколы исследований</a><span>›</span><span>Протокол лабораторных исследований</span>
+    </div>
+
+    <section class="page-heading">
+      <div>
+        <p class="eyebrow">Протокол исследований на антитела к вирусу бешенства</p>
+        <h1>Протокол лабораторных исследований</h1>
+      </div>
+      <button class="download-btn" type="button" id="printButton" title="В учебном макете формирует печатную версию страницы">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v11m0 0 4-4m-4 4-4-4M5 19h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Скачать протокол
+      </button>
+    </section>
+
+    <div class="verification-note">
+      <span class="check-icon" aria-hidden="true">✓</span>
+      <div><strong>Сведения о протоколе отображены</strong><p>Данные на этой странице воспроизведены только для учебного макета на основании предоставленного PDF.</p></div>
+    </div>
+
+    <section class="info-section">
+      <h2>Владелец животного</h2>
+      <dl class="info-grid">
+        <div class="field field-wide"><dt>ФИО владельца</dt><dd data-field="owner"></dd></div>
+      </dl>
+    </section>
+
+    <section class="info-section">
+      <h2>Сведения о животном</h2>
+      <dl class="info-grid">
+        <div class="field"><dt>Вид животного</dt><dd data-field="species"></dd></div>
+        <div class="field"><dt>Порода</dt><dd data-field="breed"></dd></div>
+        <div class="field"><dt>Пол</dt><dd data-field="sex"></dd></div>
+        <div class="field"><dt>Кличка</dt><dd data-field="petName"></dd></div>
+        <div class="field"><dt>Дата рождения</dt><dd data-field="birthDate"></dd></div>
+        <div class="field"><dt>Основное средство маркирования</dt><dd data-field="identificationType"></dd></div>
+        <div class="field field-wide"><dt>Номер идентификации</dt><dd class="mono" data-field="microchip"></dd></div>
+        <div class="field"><dt>Дата вакцинации от бешенства</dt><dd data-field="vaccinationDate"></dd></div>
+        <div class="field"><dt>Наименование препарата</dt><dd data-field="vaccine"></dd></div>
+        <div class="field"><dt>Номер серии препарата</dt><dd class="mono" data-field="vaccineBatch"></dd></div>
+        <div class="field"><dt>Дата отбора крови</dt><dd data-field="bloodDate"></dd></div>
+        <div class="field field-wide"><dt>Место отбора крови</dt><dd data-field="bloodPlace"></dd></div>
+      </dl>
+    </section>
+
+    <section class="info-section">
+      <h2>Результат исследования</h2>
+      <dl class="info-grid">
+        <div class="field field-wide"><dt>Метод исследования</dt><dd data-field="methodRu"></dd></div>
+        <div class="field field-wide"><dt>Метод исследования на английском</dt><dd data-field="methodEn"></dd></div>
+        <div class="field"><dt>Результат исследования</dt><dd><span class="status-pill">Положительный</span></dd></div>
+        <div class="field"><dt>Фактическое значение</dt><dd class="result-value" data-field="result"></dd></div>
+        <div class="field"><dt>Номер экспертизы</dt><dd class="mono" data-field="testNumber"></dd></div>
+        <div class="field"><dt>Дата экспертизы</dt><dd data-field="testDate"></dd></div>
+        <div class="field field-wide"><dt>Ответственный исполнитель</dt><dd data-field="executor"></dd></div>
+      </dl>
+    </section>
+
+    <section class="info-section document-section">
+      <h2>Реквизиты документа</h2>
+      <dl class="info-grid">
+        <div class="field"><dt>Номер протокола</dt><dd class="mono" data-field="protocolNumber"></dd></div>
+        <div class="field"><dt>Дата протокола</dt><dd data-field="protocolDate"></dd></div>
+        <div class="field field-wide"><dt>Код, указанный в предоставленном PDF</dt><dd class="mono break-all" data-field="sourceCode"></dd></div>
+      </dl>
+    </section>
+
+    <aside class="source-box">
+      <div class="source-icon">i</div>
+      <p><strong>Важно:</strong> это демонстрационная страница дипломной работы. Она не выполняет проверку в ФГИС «ВетИС», не имеет доступа к ECert и не может использоваться как подтверждение подлинности протокола.</p>
+    </aside>
+  </main>
+
+  <footer id="support" class="footer">
+    <div class="shell footer-inner">
+      <div><b>Учебная реплика интерфейса</b><p>Макет для дипломной работы. Неофициальный сайт.</p></div>
+      <div class="footer-right"><p>Референс интерфейса: публичная форма ECert.Питомцы</p><p>Данные: предоставленные пользователем PDF.</p></div>
+    </div>
+  </footer>
+
+  <div class="watermark" aria-hidden="true">УЧЕБНЫЙ МАКЕТ</div>
+  <script src="/app.js"></script>
+</body>
+</html>
