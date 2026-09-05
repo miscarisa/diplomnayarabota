@@ -49,6 +49,9 @@
     node.textContent = data[key] ?? '—';
   });
 
+  const sourceResultLabel = document.querySelector('.status-pill');
+  if (sourceResultLabel) sourceResultLabel.textContent = 'Защитный уровень ≥ 0.5 IU/ml';
+
   document.querySelectorAll('[data-pet-link]').forEach((link) => {
     if (link.getAttribute('data-pet-link') === pet) link.classList.add('active');
   });
