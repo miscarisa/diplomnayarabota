@@ -1,7 +1,7 @@
 {
   "cleanUrls": true,
   "rewrites": [
-    { "source": "/pets/protocol/:id", "destination": "/index.html" }
+    { "source": "/pets/protocol/:id", "destination": "/" }
   ],
   "headers": [
     {
