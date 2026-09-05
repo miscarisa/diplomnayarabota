@@ -3,23 +3,22 @@
 
   const shared = {
     owner: 'PETROVA ALEKSANDRA / ABRITALIN BORIS',
-    species: 'кошка / cat (Felis silvestris catus)',
+    phone: '',
+    email: '',
+    species: 'cat',
     breed: 'Mix',
-    sex: 'мужской / male',
+    sex: 'male',
     birthDate: '08.12.2021',
-    identificationType: 'чип / microchip',
     vaccinationDate: '11.06.2025',
-    vaccine: 'Rabifel / Rabifel',
+    vaccine: 'Rabifel',
     vaccineBatch: 'A218A03',
     bloodDate: '05.07.2025',
     bloodPlace: 'Russia, Moscow / IP Rayfshnayder A.V',
-    methodRu: 'Реакция нейтрализации в культуре клеток методом FAVN',
-    methodEn: 'Fluorescent Antibody Virus Neutralization (FAVN) test',
+    method: 'Реакция нейтрализации в культуре клеток методом FAVN / Fluorescent Antibody Virus Neutralization (FAVN) test',
     result: '2.62 IU/ml',
     testDate: '10.07.2025',
     executor: 'Пинчук И.В. / Pinchuk I.V.',
-    protocolDate: '10.07.2025',
-    sourceCode: '67c87a58-1c7c-47fc-aa88-5a27c69e4dba'
+    protocolDate: '10.07.2025'
   };
 
   const records = {
@@ -44,22 +43,13 @@
   const pet = queryPet === 'salem' || path.includes('salem') ? 'salem' : 'radja';
   const data = records[pet];
 
+  data.identification = `microchip, ${data.microchip}`;
+  data.vaccination = `${data.vaccine}, серия №${data.vaccineBatch}, дата введения: ${data.vaccinationDate}`;
+
   document.querySelectorAll('[data-field]').forEach((node) => {
     const key = node.getAttribute('data-field');
-    node.textContent = data[key] ?? '—';
+    node.textContent = data[key] ?? '';
   });
 
-  const sourceResultLabel = document.querySelector('.status-pill');
-  if (sourceResultLabel) sourceResultLabel.textContent = 'Защитный уровень ≥ 0.5 IU/ml';
-
-  document.querySelectorAll('[data-pet-link]').forEach((link) => {
-    if (link.getAttribute('data-pet-link') === pet) link.classList.add('active');
-  });
-
-  document.title = `${data.petName} — учебный макет ECert.Питомцы`;
-
-  const printButton = document.getElementById('printButton');
-  if (printButton) {
-    printButton.addEventListener('click', () => window.print());
-  }
+  document.title = `Протокол № ${data.protocolNumber} — учебная реплика ECert.Питомцы`;
 })();
