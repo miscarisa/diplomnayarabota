@@ -31,7 +31,8 @@
   const menus = [
     { button: document.getElementById('appSwitch'), menu: document.getElementById('appMenu') },
     { button: document.getElementById('exportButton'), menu: document.getElementById('exportMenu') },
-    { button: document.getElementById('localeButton'), menu: document.getElementById('localeMenu') }
+    { button: document.getElementById('localeButton'), menu: document.getElementById('localeMenu') },
+    { button: document.getElementById('mobileMenuButton'), menu: document.getElementById('mobileDrawer') }
   ].filter((item) => item.button && item.menu);
 
   function closeAll(except) {
@@ -58,11 +59,11 @@
     if (event.key === 'Escape') closeAll();
   });
 
-  const protocolPdf = document.getElementById('protocolPdf');
-  if (protocolPdf) {
-    protocolPdf.addEventListener('click', (event) => {
-      event.preventDefault();
-      window.print();
-    });
+  const backTop = document.getElementById('backTop');
+  if (backTop) {
+    const syncBackTop = () => backTop.classList.toggle('visible', window.scrollY > 360);
+    window.addEventListener('scroll', syncBackTop, { passive: true });
+    syncBackTop();
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   }
 })();
