@@ -1,6 +1,9 @@
 (() => {
   'use strict';
 
+  const logo = document.querySelector('.pet-logo');
+  if (logo) logo.src = 'https://raw.githubusercontent.com/miscarisa/diplomnayarabota/main/logo.svg';
+
   const data = {
     owner: 'PETROVA ALEKSANDRA / ABRITALIN BORIS',
     phone: '—',
