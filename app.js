@@ -2,12 +2,12 @@
   'use strict';
 
   const logo = document.querySelector('.pet-logo');
-  if (logo) logo.src = 'https://raw.githubusercontent.com/miscarisa/diplomnayarabota/main/logo.svg';
+  if (logo) logo.src = '/logo.png';
 
   const data = {
     owner: 'PETROVA ALEKSANDRA / ABRITALIN BORIS',
-    phone: '—',
-    email: '—',
+    phone: '+7 960 471 4320',
+    email: 'alexandrapetrova@mail.ru',
     species: 'cat',
     breed: 'Mix',
     sex: 'male',
@@ -28,6 +28,9 @@
     const key = node.getAttribute('data-field');
     node.textContent = data[key] ?? '—';
   });
+
+  const emailLink = document.getElementById('ownerEmail');
+  if (emailLink) emailLink.href = `mailto:${data.email}`;
 
   document.title = `Протокол № ${data.protocolNumber} — ECert.Питомцы`;
 
