@@ -1,4 +1,4 @@
-# diplomnayarabota
+# ECert protocol page
 
 Статическая реализация страницы просмотра протокола ECert.Питомцы.
 
@@ -13,5 +13,3 @@ npx serve .
 ```
 
 На Vercel маршрут `/pets/protocol/:id` перенаправляется на статическую страницу через `vercel.json`.
-
-Deployment source: `main`.
