@@ -1,7 +1,13 @@
 (() => {
   'use strict';
 
-  const raw = {
+  const RADJA_ID = '67c87a58-1c7c-47fc-aa88-5a27c69e4dba';
+  const pathParts = window.location.pathname.split('/').filter(Boolean);
+  const protocolId = pathParts[pathParts.length - 1] || '';
+  const isProtocolRoute = window.location.pathname.includes('/pets/protocol/');
+  const isSalemProtocol = isProtocolRoute && protocolId !== RADJA_ID;
+
+  const radja = {
     owner: 'PETROVA ALEKSANDRA / ABRITALIN BORIS',
     phone: '+7 960 471 4320',
     email: 'alexandrapetrova@mail.ru',
@@ -23,6 +29,29 @@
     resultEn: 'Positive post-vaccination, exact value 2.62 IU/ml'
   };
 
+  const salem = {
+    owner: 'PETROVA ALEKSANDRA / ABRITALIN BORIS',
+    phone: '+7 960 471 4320',
+    email: 'alexandrapetrova@mail.ru',
+    species: 'cat',
+    breed: 'Mix',
+    sex: 'male',
+    petName: 'Salem',
+    birthDate: '08.12.2021',
+    identification: 'microchip, 900136004019214',
+    vaccinationRu: 'Rabifel (Rabifel), серия №A218A03, дата введения: 11.06.2025',
+    vaccinationEn: 'Rabifel (Rabifel), batch No. A218A03, vaccination date: 11.06.2025',
+    bloodDate: '05.07.2025',
+    bloodPlace: 'Russia, Moscow / IP Rayfshnayder A.V',
+    protocolNumber: 'RU-077/R-25003386',
+    protocolDate: '10.07.2025',
+    testNumber: '84698',
+    testDate: '10.07.2025',
+    resultRu: 'Положительный поствакцинальный, точное значение 2.62 IU/ml',
+    resultEn: 'Positive post-vaccination, exact value 2.62 IU/ml'
+  };
+
+  const raw = isSalemProtocol ? salem : radja;
   const protocolPdfFilename = 'protocol.pdf';
   const maskedPhone = `******${raw.phone.replace(/\D/g, '').slice(-4)}`;
   const emailParts = raw.email.split('@');
