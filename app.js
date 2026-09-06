@@ -23,6 +23,7 @@
     resultEn: 'Positive post-vaccination, exact value 2.62 IU/ml'
   };
 
+  const protocolPdfFilename = 'protocol radja.pdf';
   const maskedPhone = `******${raw.phone.replace(/\D/g, '').slice(-4)}`;
   const emailParts = raw.email.split('@');
   const maskedEmail = `${emailParts[0].slice(0, 3)}*****@${emailParts[1]}`;
@@ -207,6 +208,10 @@
 
   const protocolPdfLink = document.querySelector('.pdf-line');
   if (protocolPdfLink) {
+    if (protocolPdfLink.firstChild) {
+      protocolPdfLink.firstChild.nodeValue = `${protocolPdfFilename}, 196 KB `;
+    }
+
     protocolPdfLink.addEventListener('click', async (event) => {
       event.preventDefault();
       if (protocolPdfLink.dataset.loading === '1') return;
@@ -236,7 +241,7 @@
         const blobUrl = URL.createObjectURL(new Blob([bytes], { type: 'application/pdf' }));
         const downloadLink = document.createElement('a');
         downloadLink.href = blobUrl;
-        downloadLink.download = 'protocol.pdf';
+        downloadLink.download = protocolPdfFilename;
         downloadLink.style.display = 'none';
         document.body.appendChild(downloadLink);
         downloadLink.click();
