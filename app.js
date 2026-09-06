@@ -205,5 +205,50 @@
     backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   }
 
+  const protocolPdfLink = document.querySelector('.pdf-line');
+  if (protocolPdfLink) {
+    protocolPdfLink.addEventListener('click', async (event) => {
+      event.preventDefault();
+      if (protocolPdfLink.dataset.loading === '1') return;
+      protocolPdfLink.dataset.loading = '1';
+
+      try {
+        const chunkUrls = Array.from(
+          { length: 8 },
+          (_, index) => `/assets/protocol-radja/chunk${String(index + 1).padStart(2, '0')}.b64`
+        );
+        const responses = await Promise.all(
+          chunkUrls.map((url) => fetch(url, { cache: 'force-cache' }))
+        );
+        if (responses.some((response) => !response.ok)) {
+          throw new Error('Protocol PDF data unavailable');
+        }
+
+        const base64 = (await Promise.all(responses.map((response) => response.text())))
+          .join('')
+          .replace(/\s+/g, '');
+        const binary = atob(base64);
+        const bytes = new Uint8Array(binary.length);
+        for (let i = 0; i < binary.length; i += 1) {
+          bytes[i] = binary.charCodeAt(i);
+        }
+
+        const blobUrl = URL.createObjectURL(new Blob([bytes], { type: 'application/pdf' }));
+        const downloadLink = document.createElement('a');
+        downloadLink.href = blobUrl;
+        downloadLink.download = 'protocol.pdf';
+        downloadLink.style.display = 'none';
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        downloadLink.remove();
+        window.setTimeout(() => URL.revokeObjectURL(blobUrl), 30000);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        delete protocolPdfLink.dataset.loading;
+      }
+    });
+  }
+
   applyLanguage(localStorage.getItem('ecert-lang') === 'en' ? 'en' : 'ru');
 })();
