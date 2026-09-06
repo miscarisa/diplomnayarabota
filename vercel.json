@@ -1,7 +1,13 @@
 {
   "cleanUrls": true,
   "alias": ["ecert-vetrf.vercel.app"],
+  "functions": {
+    "api/protocol.js": {
+      "includeFiles": "assets/protocol-radja/**"
+    }
+  },
   "rewrites": [
+    { "source": "/protocol.pdf", "destination": "/api/protocol" },
     { "source": "/pets/protocol/:id", "destination": "/" }
   ],
   "headers": [
