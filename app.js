@@ -23,7 +23,7 @@
     resultEn: 'Positive post-vaccination, exact value 2.62 IU/ml'
   };
 
-  const protocolPdfFilename = 'protocol radja.pdf';
+  const protocolPdfFilename = 'protocol.pdf';
   const maskedPhone = `******${raw.phone.replace(/\D/g, '').slice(-4)}`;
   const emailParts = raw.email.split('@');
   const maskedEmail = `${emailParts[0].slice(0, 3)}*****@${emailParts[1]}`;
