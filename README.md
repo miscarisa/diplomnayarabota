@@ -13,3 +13,4 @@ npx serve .
 ```
 
 На Vercel маршрут `/pets/protocol/:id` перенаправляется на статическую страницу через `vercel.json`.
+
